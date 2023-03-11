@@ -35,7 +35,7 @@ module.exports.addRecipe = async (req, res) => {
 
 module.exports.removeRecipe = async (req, res) => {
     try {
-        await RecipeInfo.findByIdAndDelete(req.body._id);
+        await RecipeInfo.findOneAndDelete(req.body.titleName);
         res.send("data deleted");
     } catch (error) {
         res.status(500).send(error.message);
